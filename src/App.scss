@@ -479,6 +479,7 @@ h6 {
     .footnote,
     .state-page-button {
       display: none;
+      cursor: context-menu;
     }
 
     .anchor {
@@ -1637,6 +1638,7 @@ h6 {
 
 abbr {
   text-decoration: none;
+  cursor: context-menu;
 
   &.is-cherry {
     color: $cherry;
@@ -2073,6 +2075,7 @@ table {
   display: flex;
   flex-direction: column;
   width: 30rem;
+  cursor: context-menu;
 
   &.stickied {
     position: sticky !important;
@@ -2152,6 +2155,7 @@ table {
     right: 0;
     top: -.5rem;
     transition: all .2s ease-in-out;
+    cursor: context-menu;
 
     &:hover {
       background: $yellow-hover;
@@ -4555,7 +4559,8 @@ footer {
 @media (min-width: 769px) {
   .Home,
   .State {
-    padding-top: 5rem;
+    padding-top: 2rem;
+    overflow-y: hidden;
   }
 
   .Navbar {

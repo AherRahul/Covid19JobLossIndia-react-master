@@ -1,16 +1,6 @@
-import Footer from './footer';
-import Level from './level';
 import MapExplorer from './mapexplorer';
-import Minigraph from './minigraph';
-import Search from './search';
-import Table from './table';
-import TimeSeriesExplorer from './timeseriesexplorer';
-import Updates from './updates';
 
-import {STATE_CODES_REVERSE} from '../constants';
 import {
-  formatDate,
-  formatDateAbsolute,
   mergeTimeseries,
   preprocessTimeseries,
   parseStateTimeseries,
@@ -22,8 +12,6 @@ import {
 
 import axios from 'axios';
 import React, {useState, useCallback, useMemo} from 'react';
-import * as Icon from 'react-feather';
-import {Helmet} from 'react-helmet';
 import {useEffectOnce, useLocalStorage} from 'react-use';
 
 function Home(props) {
@@ -37,7 +25,6 @@ function Home(props) {
   const [regionHighlighted, setRegionHighlighted] = useState({
     state: 'Total',
   });
-  const [showUpdates, setShowUpdates] = useState(false);
   const [anchor, setAnchor] = useState(null);
   const [mapOption, setMapOption] = useState('confirmed');
 
@@ -46,29 +33,6 @@ function Home(props) {
     null
   );
   const [newUpdate, setNewUpdate] = useLocalStorage('newUpdate', false);
-
-  const Bell = useMemo(
-    () => (
-      <Icon.Bell
-        onClick={() => {
-          setShowUpdates(!showUpdates);
-          setNewUpdate(false);
-        }}
-      />
-    ),
-    [setNewUpdate, showUpdates]
-  );
-
-  const BellOff = useMemo(
-    () => (
-      <Icon.BellOff
-        onClick={() => {
-          setShowUpdates(!showUpdates);
-        }}
-      />
-    ),
-    [showUpdates]
-  );
 
   useEffectOnce(() => {
     getStates();
@@ -108,7 +72,7 @@ function Home(props) {
         {data: stateTestData},
       ] = await Promise.all([
         axios.get('https://api.covid19india.org/data.json'),
-        axios.get('https://api.covid19india.org/state_district_wise.json'),
+        axios.get('https://script.google.com/macros/s/AKfycbx1UDTpKisw7xhY7dXL1hbL_jXJsXRZmZTAgF7W3CE8GohNuuM/exec'),
         axios.get('https://api.covid19india.org/state_test_data.json'),
       ]);
 
@@ -137,20 +101,11 @@ function Home(props) {
 
       setStateDistrictWiseData(stateDistrictWiseResponse);
       setFetched(true);
+      
     } catch (err) {
       console.log(err);
     }
   };
-
-  const onHighlightState = useCallback((state) => {
-    if (!state) return setRegionHighlighted(null);
-    setRegionHighlighted({state: state.state});
-  }, []);
-
-  const onHighlightDistrict = useCallback((district, state) => {
-    if (!state && !district) return setRegionHighlighted(null);
-    setRegionHighlighted({district, state: state.state});
-  }, []);
 
   return (
     <React.Fragment>

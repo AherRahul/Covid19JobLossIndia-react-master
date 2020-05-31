@@ -18,8 +18,7 @@ i18n
     keySeparator: false,
     returnEmptyString: false,
     backend: {
-      loadPath: 'https://api.covid19india.org/locales/locale_{{lng}}.json',
-      addPath: 'http://localhost:9999/',
+      loadPath: 'https://api.covid19india.org/locales/locale_{{lng}}.json'
     },
     saveMissing: isDevelopmentOrTest() && DEBUG,
     interpolation: {

@@ -1,26 +1,19 @@
 import ChoroplethMap from './choropleth';
-import {testedToolTip} from './tooltips';
 
 import {
   MAP_META,
   MAP_STATISTICS,
   MAP_TYPES,
   MAP_VIEWS,
-  STATE_CODES_REVERSE,
   STATE_POPULATIONS,
 } from '../constants';
 import {
-  formatDate,
-  formatNumber,
-  formatDayMonth,
-  formatLastUpdated,
+  formatNumber
 } from '../utils/commonfunctions';
 
-import {parse} from 'date-fns';
 import equal from 'fast-deep-equal';
 import React, {useState, useEffect, useMemo, useCallback} from 'react';
 import ReactDOM from 'react-dom';
-import * as Icon from 'react-feather';
 import {useTranslation} from 'react-i18next';
 import {Link} from 'react-router-dom';
 
@@ -350,16 +343,7 @@ function MapExplorer({
         display: anchor === 'timeseries' ? 'none' : '',
       }}
     >
-      {window.innerWidth > 769 && (
-        <div
-          className={`anchor ${anchor === 'mapexplorer' ? 'stickied' : ''}`}
-          onClick={() => {
-            setAnchor(anchor === 'mapexplorer' ? null : 'mapexplorer');
-          }}
-        >
-          <Icon.Anchor />
-        </div>
-      )}
+      
       <div className="header">
         <h1>
         {t('Job Loss In ')}{t(currentMap.name)}
@@ -369,7 +353,7 @@ function MapExplorer({
             action: t(window.innerWidth <= 769 ? 'Tap' : 'Hover'),
             mapType: t(
               currentMapMeta.mapType === MAP_TYPES.COUNTRY
-                ? 'state/UT'
+                ? 'state'
                 : 'District'
             ),
           })}
@@ -384,7 +368,7 @@ function MapExplorer({
           style={{animationDelay: '2s'}}
           onClick={() => setMapOption('confirmed')}
         >
-          <h5>{window.innerWidth <= 769 ? t('Cnfmd') : t('Confirmed')}</h5>
+          <h5>{window.innerWidth <= 769 ? t('Cnfmd') : t('Total Job Loss')}</h5>
           <div className="stats-bottom">
             <h1>{formatNumber(panelRegion.confirmed)}</h1>
             <h6>{`+${formatNumber(panelRegion.deltaconfirmed)}`}</h6>
@@ -398,7 +382,7 @@ function MapExplorer({
           style={{animationDelay: '2.1s'}}
           onClick={() => setMapOption('active')}
         >
-          <h5>{window.innerWidth <= 769 ? t('Actv') : t('Active')}</h5>
+          <h5>{window.innerWidth <= 769 ? t('Actv') : t('Firing')}</h5>
           <div className="stats-bottom">
             <h1>{formatNumber(panelRegion.active)}</h1>
             <h6>{` `}</h6>
@@ -412,7 +396,7 @@ function MapExplorer({
           style={{animationDelay: '2.2s'}}
           onClick={() => setMapOption('recovered')}
         >
-          <h5>{window.innerWidth <= 769 ? t('Rcvrd') : t('Recovered')}</h5>
+          <h5>{window.innerWidth <= 769 ? t('Rcvrd') : t('Hiring')}</h5>
           <div className="stats-bottom">
             <h1>{formatNumber(panelRegion.recovered)}</h1>
             <h6>{`+${formatNumber(panelRegion.deltarecovered)}`}</h6>
@@ -426,56 +410,11 @@ function MapExplorer({
           style={{animationDelay: '2.3s'}}
           onClick={() => setMapOption('deceased')}
         >
-          <h5>{window.innerWidth <= 769 ? t('Dcsd') : t('Deceased')}</h5>
+          <h5>{window.innerWidth <= 769 ? t('Dcsd') : t('Freezing')}</h5>
           <div className="stats-bottom">
             <h1>{formatNumber(panelRegion.deaths)}</h1>
             <h6>{`+${formatNumber(panelRegion.deltadeaths)}`}</h6>
           </div>
-        </div>
-
-        <div
-          className="stats is-purple tested fadeInUp"
-          style={{animationDelay: '2.4s'}}
-        >
-          <h5>{t('Tested')}</h5>
-          <div className="stats-bottom">
-            <h1>{formatNumber(testObj?.totaltested)}</h1>
-          </div>
-		  
-          <h6 className="timestamp">
-            {!isNaN(parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()))
-              ? t('As of {{date}}', {
-                  date: formatDayMonth(testObj?.updatedon),
-                })
-              : ''}
-          </h6>
-          {testObj?.totaltested?.length > 1 && (
-            <a href={testObj.source} target="_noblank">
-              <Icon.Link />
-            </a>
-          )}
-          {panelRegion.state === 'Total' ? testedToolTip : ''}
-        </div>
-		
-		  <div className="stats is-purple tested fadeInUp" style={{animationDelay: '2.4s'}}>
-          <h5>{t('Job Lost')}</h5>
-          <div className="stats-bottom">
-            <h1>-</h1>
-          </div>
-		  
-          <h6 className="timestamp">
-            {!isNaN(parse(testObj?.updatedon, 'dd/MM/yyyy', new Date()))
-              ? t('As of {{date}}', {
-                  date: formatDayMonth(testObj?.updatedon),
-                })
-              : ''}
-          </h6>
-          {testObj?.totaltested?.length > 1 && (
-            <a href={testObj.source} target="_noblank">
-              <Icon.Link />
-            </a>
-          )}
-          {panelRegion.state === 'Total' ? testedToolTip : ''}
         </div>
       </div>
 
@@ -502,20 +441,15 @@ function MapExplorer({
             <div className="last-update">
               <h6>{t('Last updated')}</h6>
               <h3>
-                {isNaN(Date.parse(formatDate(panelRegion.lastupdatedtime)))
-                  ? ''
-                  : formatLastUpdated(panelRegion.lastupdatedtime) +
-                    ' ' +
-                    t('ago')}
+                {t('Few Minutes Ago')}
               </h3>
             </div>
           )}
 
         {currentMapMeta.mapType === MAP_TYPES.STATE ? (
-          <Link to={`state/${STATE_CODES_REVERSE[panelRegion.state]}`}>
+          <Link to={``}>
             <div className="button state-page-button">
-              <abbr>{t('Visit state page')}</abbr>
-              <Icon.ArrowRightCircle />
+              <abbr>{t(currentMap.name)}</abbr>
             </div>
           </Link>
         ) : null}

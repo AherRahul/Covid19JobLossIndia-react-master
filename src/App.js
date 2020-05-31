@@ -46,7 +46,7 @@ function App() {
 
   const pages = [
     {
-      pageLink: '/',
+      pageLink: '/sectors-effected',
       view: Home,
       displayName: 'Home',
       animationDelayForNavbar: 0.2,

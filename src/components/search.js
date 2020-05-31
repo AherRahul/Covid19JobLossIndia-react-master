@@ -28,7 +28,7 @@ const districtEngine = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('district'),
   indexRemote: true,
   remote: {
-    url: 'https://api.covid19india.org/state_district_wise.json',
+    url: 'https://script.google.com/macros/s/AKfycbx1UDTpKisw7xhY7dXL1hbL_jXJsXRZmZTAgF7W3CE8GohNuuM/exec',
     transform: function (response) {
       const districts = [];
       Object.keys(response).map((stateName) => {
