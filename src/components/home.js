@@ -1,6 +1,17 @@
+import Footer from './footer';
+import Level from './level';
 import MapExplorer from './mapexplorer';
+import Minigraph from './minigraph';
+import Search from './search';
+import Table from './table';
+import TimeSeriesExplorer from './timeseriesexplorer';
+import Updates from './updates';
+import GrowthTrendChart from './Charts/growthtrendchart';
 
+import {STATE_CODES_REVERSE} from '../constants';
 import {
+  formatDate,
+  formatDateAbsolute,
   mergeTimeseries,
   preprocessTimeseries,
   parseStateTimeseries,
@@ -12,6 +23,8 @@ import {
 
 import axios from 'axios';
 import React, {useState, useCallback, useMemo} from 'react';
+import * as Icon from 'react-feather';
+import {Helmet} from 'react-helmet';
 import {useEffectOnce, useLocalStorage} from 'react-use';
 
 function Home(props) {
@@ -25,6 +38,7 @@ function Home(props) {
   const [regionHighlighted, setRegionHighlighted] = useState({
     state: 'Total',
   });
+  const [showUpdates, setShowUpdates] = useState(false);
   const [anchor, setAnchor] = useState(null);
   const [mapOption, setMapOption] = useState('confirmed');
 
@@ -33,6 +47,29 @@ function Home(props) {
     null
   );
   const [newUpdate, setNewUpdate] = useLocalStorage('newUpdate', false);
+
+  const Bell = useMemo(
+    () => (
+      <Icon.Bell
+        onClick={() => {
+          setShowUpdates(!showUpdates);
+          setNewUpdate(false);
+        }}
+      />
+    ),
+    [setNewUpdate, showUpdates]
+  );
+
+  const BellOff = useMemo(
+    () => (
+      <Icon.BellOff
+        onClick={() => {
+          setShowUpdates(!showUpdates);
+        }}
+      />
+    ),
+    [showUpdates]
+  );
 
   useEffectOnce(() => {
     getStates();
@@ -71,11 +108,12 @@ function Home(props) {
         {data: stateDistrictWiseResponse},
         {data: stateTestData},
       ] = await Promise.all([
-        axios.get('https://api.covid19india.org/data.json'),
+        axios.get('https://script.google.com/macros/s/AKfycbzbnAAnnvSgHmuNm5TQdm8Dk4hH5cMlmIsR4Mkhqekk90r2r_w/exec'),
         axios.get('https://script.google.com/macros/s/AKfycbx1UDTpKisw7xhY7dXL1hbL_jXJsXRZmZTAgF7W3CE8GohNuuM/exec'),
         axios.get('https://api.covid19india.org/state_test_data.json'),
       ]);
 
+      
       setStates(data.statewise);
       setDistrictZones(parseDistrictZones(zonesResponse.zones));
 
@@ -90,6 +128,8 @@ function Home(props) {
 
       setLastUpdated(data.statewise[0].lastupdatedtime);
 
+      console.log(data);
+
       const testData = parseStateTestData(stateTestData.states_tested_data);
       const totalTest = data.tested[data.tested.length - 1];
       testData['Total'] = {
@@ -97,22 +137,34 @@ function Home(props) {
         totaltested: totalTest.totalsamplestested,
         updatedon: totalTest.updatetimestamp.split(' ')[0],
       };
+      
       setStateTestData(testData);
-
+      
       setStateDistrictWiseData(stateDistrictWiseResponse);
       setFetched(true);
-      
     } catch (err) {
       console.log(err);
     }
   };
 
+  
+
+  const onHighlightState = useCallback((state) => {
+    if (!state) return setRegionHighlighted(null);
+    setRegionHighlighted({state: state.state});
+  }, []);
+
+  const onHighlightDistrict = useCallback((district, state) => {
+    if (!state && !district) return setRegionHighlighted(null);
+    setRegionHighlighted({district, state: state.state});
+  }, []);
+
   return (
     <React.Fragment>
       <div className="Home">
-        <div className="home-right">
-          <React.Fragment>
-            {fetched && (
+      <div className="home-left">   
+       <React.Fragment>
+          {fetched && (
               <MapExplorer
                 mapName={'India'}
                 states={states}
@@ -128,6 +180,22 @@ function Home(props) {
               />
             )}
           </React.Fragment>
+        </div>
+        
+
+        <div className="home-right">
+        {stateDistrictWiseData && (
+            <Table
+              states={states}
+              summary={false}
+              districts={stateDistrictWiseData}
+              zones={districtZones}
+              regionHighlighted={regionHighlighted}
+              setRegionHighlighted={setRegionHighlighted}
+              onHighlightState={onHighlightState}
+              onHighlightDistrict={onHighlightDistrict}
+            />
+          )}
         </div>
       </div>
     </React.Fragment>

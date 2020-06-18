@@ -74,45 +74,46 @@ body {
 }
 
 h1 {
-  font-family: 'archia';
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 24px !important;
   font-weight: 900;
 }
 
 h2 {
-  font-family: 'archia';
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 18px !important;
   font-weight: 400;
 }
 
 h3 {
-  font-family: 'archia';
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 14px !important;
   font-weight: 400;
 }
 
 h4 {
-  font-family: 'archia';
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 13px !important;
   font-weight: 900;
 }
 
 h5 {
-  font-family: 'archia';
-  font-size: 12px !important;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 16px !important;
   font-weight: 900;
+  padding: 5px;
 }
 
 h6 {
-  font-family: 'archia';
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 11px !important;
   font-weight: 600;
 }
 
 .App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  background-color: #ebebeb;
+  padding: 1rem 0 1rem;
+  height: calc(100vh - 35px);
 }
 
 .arrow-up {
@@ -150,7 +151,7 @@ h6 {
       border: 0;
       color: #6c757d;
       cursor: pointer;
-      font-family: 'archia';
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
       font-size: 12px;
       font-weight: 600;
       margin: 0;
@@ -167,7 +168,7 @@ h6 {
   .navbar-left {
     color: $gray;
     cursor: pointer;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 12px;
     font-weight: 600;
     padding: 1.5rem;
@@ -175,7 +176,7 @@ h6 {
 
   .navbar-middle {
     color: $gray;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 18px;
     font-weight: 900;
     text-transform: uppercase;
@@ -188,7 +189,7 @@ h6 {
   .navbar-right {
     color: $gray;
     cursor: pointer;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 12px;
     font-weight: 600;
     padding: 1.5rem;
@@ -207,7 +208,7 @@ h6 {
     color: $gray;
     display: flex;
     flex-direction: column;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     height: 100vh;
     position: absolute;
     top: 3.85rem;
@@ -247,32 +248,31 @@ h6 {
 
 .Home {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-left: 10rem;
-  margin-right: 5rem;
-
+  
   .home-left,
   .home-right {
-    display: flex;
-    flex-direction: column;
-    width: 30rem;
+    width: 50%;
+    padding: 0 3%;
+    margin: 1rem 0;
   }
 
   .home-left {
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
+    border-right: 3px dashed #989ea4;
   }
 
   .home-right {
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
-    min-height: 10rem;
+    padding: 0 0 0 3%;
   }
 
   .header {
     z-index: 99;
+    padding-top: 25px;
+    padding-bottom: 0px;
+  }
+  
+  .right-holder{
+    height: calc(100vh - 25%);
+    overflow: auto;
   }
 }
 
@@ -282,7 +282,7 @@ h6 {
   color: $gray;
   display: flex;
   flex-direction: row;
-  font-family: 'archia';
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 10px;
   margin-right: .5rem;
   padding: .5rem;
@@ -499,7 +499,7 @@ h6 {
   }
 
   .__react_component_tooltip {
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 11px;
     font-weight: 600;
     padding: .25rem;
@@ -617,7 +617,7 @@ h6 {
     }
 
     p {
-      font-family: 'archia';
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
       font-weight: 600;
       margin-bottom: 1.25rem;
       padding-right: 1rem;
@@ -748,7 +748,7 @@ h6 {
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  font-family: 'archia';
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: .75rem;
   padding-left: 1.5rem;
 
@@ -778,7 +778,7 @@ h6 {
 
   a {
     color: $gray;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: .75rem;
     margin-right: .25rem;
     text-decoration: none;
@@ -906,7 +906,7 @@ h6 {
   border-radius: 5px !important;
   color: $gray-mid !important;
   cursor: pointer;
-  font-family: 'archia' !important;
+  font-family: "Trebuchet MS", Helvetica, sans-serif !important;
   margin-bottom: .25rem;
   text-transform: capitalize;
 
@@ -939,7 +939,7 @@ h6 {
   color: $purple;
   display: flex;
   flex-direction: row;
-  font-family: 'Archia';
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: .8rem;
   font-weight: 600;
   justify-content: center;
@@ -968,7 +968,7 @@ h6 {
 
   label {
     color: $gray;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: .75rem;
     margin-bottom: 1rem;
   }
@@ -988,7 +988,7 @@ h6 {
     border-radius: 5px;
     box-shadow: 0 10px 35px rgba(0, 0, 0, .1);
     color: $gray;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 1rem;
     height: 2rem;
     outline: none;
@@ -1005,7 +1005,7 @@ h6 {
 
   .search-placeholder {
     color: $gray-mid;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 1rem;
     left: 3rem;
     opacity: .8;
@@ -1081,7 +1081,7 @@ h6 {
     border-radius: 5px;
     color: $pink;
     cursor: pointer;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: .75rem;
     padding: .75rem;
     text-align: center;
@@ -1136,7 +1136,7 @@ h6 {
       cursor: pointer;
       display: flex;
       flex-direction: row;
-      font-family: 'archia';
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
       font-size: .9rem;
       justify-content: space-between;
       min-height: 2rem;
@@ -1325,7 +1325,7 @@ h6 {
       color: $gray-mid;
       display: flex;
       flex-direction: row;
-      font-family: 'archia';
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
 
       div {
         padding-top: 1px;
@@ -1434,7 +1434,7 @@ h6 {
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  font-family: 'archia';
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: .75rem;
   font-weight: 900;
   margin-bottom: .5rem;
@@ -1684,39 +1684,78 @@ abbr {
 table {
   align-self: center;
   border-collapse: separate;
-  border-spacing: 3px 4px;
-  font-family: 'archia';
+  border-spacing: 0 4px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   position: relative;
-  width: 30rem;
-
+  width: 100%;
+  
   thead {
-    background: $gray-light;
-    color: $gray;
     font-size: .75rem;
     text-align: left;
 
     th {
       background: $gray-light-opaque;
-      border-radius: 5px;
       cursor: pointer;
       padding: .5rem;
-      position: sticky !important;
       top: 5px;
       transition: all .1s ease-in-out;
       z-index: 99;
+      font-size: 14px;
 
       &:hover {
         background: #ecedee;
+      }
+      &:nth-child(2) {
+        background: #ff073a20;
+        .heading-content {
+          abbr {
+            color: #ff073a;
+            text-align: center;
+          }
+        }
+      }
+      &:nth-child(3) {
+        background: #28a74520;
+        .heading-content {
+          abbr {
+            color: #28a745;
+            text-align: center;
+          }
+        }
+      }
+      &:nth-child(4) {
+        background: #007bff10;
+        .heading-content {
+          abbr {
+            color: #007bff;
+            text-align: center;
+          }
+        }
+      }
+      &:nth-child(5) {
+        background: #6c757d10;
+        .heading-content {
+          abbr {
+            color: #6c757d;
+            text-align: center;
+          }
+        }
+      }
+      &.state-heading {
+        background: #6c757d;
+        .heading-content {
+          text-align: left;
+          abbr {
+            color: #fff;
+          }          
+        }
       }
     }
   }
 
   .heading-content {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     position: relative;
+    text-align: center;
 
     abbr {
       color: $gray;
@@ -1757,7 +1796,7 @@ table {
       cursor: pointer;
 
       &:nth-child(odd) {
-        background: $gray-light;
+        background: #F7F7F7;
       }
 
       &.is-highlighted {
@@ -1782,6 +1821,7 @@ table {
 
       &:hover {
         background: $gray-hover !important;
+        transform: scale(1.04);
 
         .dropdown {
           background: $gray-hover;
@@ -1790,10 +1830,9 @@ table {
     }
 
     td {
-      border-radius: 4px;
       font-size: .9rem;
       padding: .25rem;
-      text-align: right;
+      text-align: center;
 
       &:first-child {
         font-weight: 600;
@@ -1922,7 +1961,7 @@ table {
         color: $gray;
         display: flex;
         flex-direction: row;
-        font-family: 'archia';
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
         font-size: 12px;
         left: 0;
         margin-top: .5rem;
@@ -2071,10 +2110,7 @@ table {
 }
 
 .MapExplorer {
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  width: 30rem;
+  width: auto;
   cursor: context-menu;
 
   &.stickied {
@@ -2102,10 +2138,10 @@ table {
   .svg-parent {
     display: block;
     margin: auto;
-    margin-top: 2rem;
     overflow: hidden;
-    width: 90%;
-
+    width: auto;
+    box-shadow: none !important;
+    background-color: transparent !important;
     &.maplegend {
       margin-top: .6rem;
       overflow: visible;
@@ -2122,7 +2158,7 @@ table {
 
       text {
         fill: $gray;
-        font-family: 'archia';
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
         font-size: 10px;
         font-weight: 600;
         text-align: right;
@@ -2259,12 +2295,11 @@ table {
 
   .map-stats {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     margin-bottom: 1rem;
     position: relative;
     width: 100%;
     z-index: 10;
+    text-align: center;
 
     h1,
     h5,
@@ -2292,6 +2327,10 @@ table {
       padding: .25rem;
       position: relative;
       transition: all .1s ease-in-out;
+      
+      &:hover {
+        box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, .13);;
+      }
 
       .stats-bottom {
         display: flex;
@@ -2306,12 +2345,14 @@ table {
 
       h1 {
         color: $cherry;
-        font-size: 1em !important;
+        font-size: 1.2em !important;
         font-weight: 600;
+        padding-bottom: 5px;
       }
 
       &.is-green {
         background: $green-light;
+        box-shadow: 0, 0, 3px 1px $green-light;
 
         h5,
         h6 {
@@ -2325,6 +2366,7 @@ table {
 
       &.is-blue {
         background: $blue-light;
+        box-shadow: 0, 0, 3px 1px $blue-light;
 
         h5,
         h6 {
@@ -2338,6 +2380,7 @@ table {
 
       &.is-gray {
         background: $gray-light;
+        box-shadow: 0, 0, 3px 1px $gray-light;
 
         h5,
         h6 {
@@ -2423,6 +2466,7 @@ table {
   #chart,
   #legend {
     filter: saturate(1.5);
+    height: calc(100vh - 30rem);
   }
 
   .disclaimer {
@@ -2433,7 +2477,7 @@ table {
     color: $gray-dark;
     display: flex;
     flex-direction: row;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 12px;
     left: 0;
     margin-left: auto;
@@ -2444,6 +2488,7 @@ table {
     right: 0;
     width: 14rem;
     z-index: 99;
+    display: none;
 
     svg {
       margin-right: .25rem;
@@ -2463,8 +2508,18 @@ table {
   }
 }
 
+.table-title{
+  align-self: flex-start;
+  color: #6c757d;
+  display: flex;
+  flex-direction: column;
+  margin-top: -15px;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+}
+
 .__react_component_tooltip {
-  font-family: 'archia';
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 11px;
   font-weight: 600;
   padding: .25rem;
@@ -2523,7 +2578,7 @@ table {
 
   h4 {
     display: table-cell;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 12px !important;
     font-weight: 900;
     height: 2rem;
@@ -2623,7 +2678,7 @@ table {
 
     label {
       color: $gray-mid;
-      font-family: 'archia';
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
       font-size: .75rem;
       font-weight: 900;
       margin-right: .25rem;
@@ -2723,7 +2778,7 @@ input {
     border-radius: 4px;
     color: $gray;
     cursor: pointer;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-weight: 900;
     margin-left: -1px;
     margin-top: 1rem;
@@ -2860,7 +2915,7 @@ input {
     display: flex;
     position: relative;
     width: 30rem;
-
+    
     svg {
       width: 100%;
 
@@ -2873,7 +2928,7 @@ input {
 
       text {
         color: $cherry-mid;
-        font-family: 'archia';
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
         font-size: 9px;
         font-weight: 600;
         stroke: transparent;
@@ -3026,7 +3081,7 @@ input {
   a {
     background: $blue-light;
     color: $blue;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-weight: 900;
     text-decoration: none;
     text-transform: uppercase;
@@ -3205,7 +3260,7 @@ footer {
       border-radius: 4px;
       color: #6c757d;
       cursor: default;
-      font-family: 'archia';
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
       font-size: 12px;
       font-weight: 900;
       height: 2.19rem;
@@ -3236,7 +3291,7 @@ footer {
 
       button {
         border-radius: 5px;
-        font-family: 'archia';
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
         padding: 1rem;
         transition: all .1s ease-in-out;
 
@@ -3277,7 +3332,7 @@ footer {
     }
 
     .react-calendar__month-view__weekdays__weekday {
-      font-family: 'archia';
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
       margin-bottom: .5rem;
     }
 
@@ -3337,7 +3392,7 @@ footer {
       border-radius: 4px;
       color: $gray;
       cursor: pointer;
-      font-family: 'archia';
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
       font-weight: 900;
       margin: .2rem .1rem;
       padding: .5rem;
@@ -3354,7 +3409,7 @@ footer {
     background: $pblue-light;
     border-radius: 5px;
     color: $pblue;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: .9rem;
     font-weight: 600;
     line-height: 23px;
@@ -3778,7 +3833,7 @@ footer {
 
   code {
     color: $orange-mid;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
   }
 
   a {
@@ -4060,7 +4115,7 @@ footer {
     border-top: 0;
     color: $orange;
     cursor: pointer;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-weight: 900;
     margin: 0;
     outline: none;
@@ -4348,7 +4403,7 @@ footer {
         width: 100%;
 
         text {
-          font-family: 'archia';
+          font-family: "Trebuchet MS", Helvetica, sans-serif;
         }
 
         .label {
@@ -4376,7 +4431,7 @@ footer {
     .district {
       display: flex;
       flex-direction: row;
-      font-family: 'archia';
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
       height: 2.5rem;
       justify-content: flex-start;
       margin-right: 1rem;
@@ -4463,7 +4518,7 @@ footer {
     border: 2px solid $gray-light;
     border-radius: 0;
     color: $gray;
-    font-family: 'archia';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: .75rem;
     font-weight: 600;
     padding: .5rem;
@@ -4491,7 +4546,7 @@ footer {
       color: $gray;
       display: flex;
       flex-direction: row;
-      font-family: 'archia';
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
       font-weight: 600;
       height: 2rem;
       justify-content: center;
@@ -4527,7 +4582,7 @@ footer {
 
         .chart-title {
           color: #6c757d;
-          font-family: 'archia';
+          font-family: "Trebuchet MS", Helvetica, sans-serif;
           font-size: 1.5rem !important;
           font-weight: 900;
           padding: 20px 0;
@@ -4541,7 +4596,7 @@ footer {
 
         .chart-note {
           color: $gray;
-          font-family: 'archia';
+          font-family: "Trebuchet MS", Helvetica, sans-serif;
           font-size: .8rem;
           height: 50px;
           margin-top: 5px;
@@ -4559,8 +4614,14 @@ footer {
 @media (min-width: 769px) {
   .Home,
   .State {
-    padding-top: 2rem;
-    overflow-y: hidden;
+    max-width: calc(100% - 25%);
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    padding: 0 1rem 1rem;
+    overflow: hidden;
+    height: calc(100% - 15px);
   }
 
   .Navbar {

@@ -310,7 +310,7 @@ function MapExplorer({
   );
 
   const testObj = stateTestData[panelRegion.state];
-
+  
   let hoveredRegionCount;
   let hoveredRegionZone;
   if (currentMap.stat !== MAP_STATISTICS.ZONE) {
@@ -346,7 +346,7 @@ function MapExplorer({
       
       <div className="header">
         <h1>
-        {t('Job Loss In ')}{t(currentMap.name)}
+        {t(currentMap.name)}{t(' Map')}
         </h1>
         <h6>
           {t('{{action}} over a {{mapType}} for more details', {
@@ -368,24 +368,10 @@ function MapExplorer({
           style={{animationDelay: '2s'}}
           onClick={() => setMapOption('confirmed')}
         >
-          <h5>{window.innerWidth <= 769 ? t('Cnfmd') : t('Total Job Loss')}</h5>
-          <div className="stats-bottom">
-            <h1>{formatNumber(panelRegion.confirmed)}</h1>
-            <h6>{`+${formatNumber(panelRegion.deltaconfirmed)}`}</h6>
-          </div>
-        </div>
-
-        <div
-          className={`stats is-blue fadeInUp ${
-            mapOption === 'active' ? 'focused' : ''
-          }`}
-          style={{animationDelay: '2.1s'}}
-          onClick={() => setMapOption('active')}
-        >
           <h5>{window.innerWidth <= 769 ? t('Actv') : t('Firing')}</h5>
           <div className="stats-bottom">
             <h1>{formatNumber(panelRegion.active)}</h1>
-            <h6>{` `}</h6>
+            
           </div>
         </div>
 
@@ -399,9 +385,23 @@ function MapExplorer({
           <h5>{window.innerWidth <= 769 ? t('Rcvrd') : t('Hiring')}</h5>
           <div className="stats-bottom">
             <h1>{formatNumber(panelRegion.recovered)}</h1>
-            <h6>{`+${formatNumber(panelRegion.deltarecovered)}`}</h6>
+            
           </div>
         </div>
+
+        <div
+            className={`stats is-blue fadeInUp ${
+              mapOption === 'active' ? 'focused' : ''
+            }`}
+            style={{animationDelay: '2s'}}
+            onClick={() => setMapOption('active')}
+          >
+            <h5>{window.innerWidth <= 769 ? t('Actv') : t('Freezing')}</h5>
+            <div className="stats-bottom">
+              <h1>{formatNumber(panelRegion.deaths)}</h1>
+              
+            </div>
+          </div>
 
         <div
           className={`stats is-gray fadeInUp ${
@@ -410,14 +410,13 @@ function MapExplorer({
           style={{animationDelay: '2.3s'}}
           onClick={() => setMapOption('deceased')}
         >
-          <h5>{window.innerWidth <= 769 ? t('Dcsd') : t('Freezing')}</h5>
+          <h5>{window.innerWidth <= 769 ? t('Dcsd') : t('Total Job Loss')}</h5>
           <div className="stats-bottom">
-            <h1>{formatNumber(panelRegion.deaths)}</h1>
-            <h6>{`+${formatNumber(panelRegion.deltadeaths)}`}</h6>
+            <h1>{formatNumber(panelRegion.confirmed)}</h1>
           </div>
         </div>
       </div>
-
+      
       <div className="meta fadeInUp" style={{animationDelay: '2.4s'}}>
         <h2
           className={`${

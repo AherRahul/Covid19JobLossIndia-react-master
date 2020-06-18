@@ -38,6 +38,23 @@ function DistrictHeaderCell({handleSort, statistic, sortData}) {
   const breakpoint = useBreakpoint();
   const {t} = useTranslation();
 
+  
+  if (statistic == "confirmed") {
+    statistic = "Total Job Loss"
+  }
+  
+  if (statistic == "active") {
+    statistic = "Firing"
+  }
+
+  if (statistic == "recovered") {
+    statistic = "Hiring"
+  }
+
+  if (statistic == "deceased") {
+    statistic = "Freezing"
+  }
+
   return (
     <td onClick={() => handleSort(statistic)}>
       <div className="heading-content">
@@ -299,37 +316,7 @@ function Row({
             </td>
           </tr>
 
-          <tr className={'state-last-update'}>
-            <td colSpan={3} style={{paddingBottom: 0}}>
-              <p className="spacer"></p>
-              <p>
-                {isNaN(Date.parse(formatDate(state.lastupdatedtime)))
-                  ? ''
-                  : `${t('Last updated')} ${formatLastUpdated(
-                      state.lastupdatedtime
-                    )} ${t('ago')}`}
-              </p>
-              {sortedDistricts?.Unknown && (
-                <div className="disclaimer">
-                  <Icon.AlertCircle />
-                  {t('District-wise numbers are under reconciliation')}
-                </div>
-              )}
-            </td>
-            {state.state !== 'State Unassigned' && (
-              <td
-                align="center"
-                className="state-page-link"
-                colSpan={2}
-                onClick={() => {
-                  history.push(`state/${state.statecode}`);
-                }}
-              >
-                {t('See more details on {{state}}', {state: t(state.state)})}
-              </td>
-            )}
-          </tr>
-
+         
           <tr className={classnames('district-heading')}>
             <td onClick={() => handleSort('district')}>
               <div className="heading-content">

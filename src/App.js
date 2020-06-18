@@ -46,47 +46,12 @@ function App() {
 
   const pages = [
     {
-      pageLink: '/sectors-effected',
+      pageLink: '',
       view: Home,
       displayName: 'Home',
       animationDelayForNavbar: 0.2,
       showInNavbar: true,
-    },
-    {
-      pageLink: '/demographics',
-      view: Demographics,
-      displayName: t('Demographics'),
-      animationDelayForNavbar: 0.3,
-      showInNavbar: true,
-    },
-    {
-      pageLink: '/deepdive',
-      view: DeepDive,
-      displayName: t('Deep Dive'),
-      animationDelayForNavbar: 0.4,
-      showInNavbar: true,
-    },
-    {
-      pageLink: '/essentials',
-      view: Essentials,
-      displayName: t('Essentials'),
-      animationDelayForNavbar: 0.5,
-      showInNavbar: true,
-    },
-    {
-      pageLink: '/about',
-      view: FAQ,
-      displayName: t('About'),
-      animationDelayForNavbar: 0.6,
-      showInNavbar: true,
-    },
-    {
-      pageLink: '/state/:stateCode',
-      view: State,
-      displayName: t('State'),
-      animationDelayForNavbar: 0.7,
-      showInNavbar: false,
-    },
+    }
   ];
 
   const [darkMode, setDarkMode] = useLocalStorage('darkMode', false);

@@ -438,7 +438,11 @@ function ChoroplethMap({
 
   return (
     <React.Fragment>
-      <div className="svg-parent fadeInUp" style={{animationDelay: '2.5s'}}>
+      <div className="svg-parent fadeInUp" style={{animationDelay: '2.5s', backgroundColor: 'white',
+    padding: '15px',
+    borderRadius: '5px',
+    boxShadow: '10px 10px 5px #aaaaaa'
+}}>
         <svg id="chart" preserveAspectRatio="xMidYMid meet" ref={svgRef}>
           <g className="regions" />
           <g className="state-borders" />
@@ -461,7 +465,6 @@ function ChoroplethMap({
         ) : (
           ''
         )}
-      </div>
 
       {mapScale && (
         <MapLegend
@@ -471,6 +474,9 @@ function ChoroplethMap({
           mapOption={mapOption}
         />
       )}
+      </div>
+
+      
 
       <svg style={{position: 'absolute', height: 0}}>
         <defs>

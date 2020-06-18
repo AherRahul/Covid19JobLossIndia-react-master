@@ -33,13 +33,17 @@ function DeepDive() {
         axios.get('https://api.covid19india.org/raw_data.json'),
         axios.get('https://api.covid19india.org/states_daily.json'),
       ]);
+      
+      console.log(rawDataResponse.data.raw_data);
+     
       setTimeseries(response.data.cases_time_series);
       setStatesTimeSeries(stateDailyResponse.data.states_daily);
       setRawData(rawDataResponse.data.raw_data);
-      setFetched(true);
+      setFetched(true); 
     } catch (err) {
       console.log(err);
     }
+    
   };
 
   return (

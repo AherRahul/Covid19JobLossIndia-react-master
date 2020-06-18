@@ -16,6 +16,22 @@ const useBreakpoint = createBreakpoint({XL: 1280, L: 768, S: 350});
 function StateHeaderCell({handleSort, sortData, statistic}) {
   const breakpoint = useBreakpoint();
   const {t} = useTranslation();
+ 
+  if (statistic == "confirmed") {
+    statistic = "Total Job Loss"
+  }
+  
+  if (statistic == "active") {
+    statistic = "Firing"
+  }
+
+  if (statistic == "recovered") {
+    statistic = "Hiring"
+  }
+
+  if (statistic == "deaths") {
+    statistic = "Freezing"
+  }
 
   return (
     <th onClick={() => handleSort(statistic)}>
@@ -138,6 +154,8 @@ function Table({
   if (states.length > 0) {
     return (
       <React.Fragment>
+        <div className="heading-content table-title fadeInUp header" ><h1>Job Loss In India</h1></div>
+        <div className="right-holder">
         <ReactTooltip
           place="right"
           type="dark"
@@ -145,10 +163,7 @@ function Table({
           multiline={true}
           globalEventOff="click"
         />
-
-        {FineprintTop}
-
-        <table className="table fadeInUp" style={{animationDelay: '1.8s'}}>
+        <table className="table fadeInUp" style={{animationDelay: '1.8s', padding: '20px', backgroundColor: 'white',  borderRadius: '5px', marginBottom: '25px'}}>
           <thead>
             <tr>
               <th className="state-heading" onClick={() => handleSort('state')}>
@@ -215,9 +230,10 @@ function Table({
             </tbody>
           )}
         </table>
-        {states && FineprintBottom}
+        </div>
       </React.Fragment>
     );
+    
   } else {
     return <div style={{height: '50rem'}}></div>;
   }

@@ -1,16 +1,16 @@
 import {hi, te, gu, ta, bn} from 'date-fns/locale/';
 
 export const STATE_ROW_STATISTICS = [
-  'confirmed',
   'active',
   'recovered',
   'deaths',
+  'confirmed'
 ];
 export const DISTRICT_ROW_STATISTICS = [
-  'confirmed',
   'active',
   'recovered',
   'deceased',
+  'confirmed'
 ];
 
 export const MAP_TYPES = {
