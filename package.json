@@ -1,8 +1,8 @@
 {
-  "name": "covid19india",
+  "name": "covidjobloss",
   "version": "1.0.0",
   "private": true,
-  "homepage": "",
+  "homepage": "https://www.client-demo.xyz/",
   "dependencies": {
     "@juggle/resize-observer": "^3.1.3",
     "@primer/components": "^19.0.0",
@@ -46,7 +46,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && npm run compress_maps && cp build/index.html build/404.html && npm run build-sw",
+    "build": "react-scripts build && npm run compress_maps && npm run build-sw",
     "map_test": "react-scripts test src/__tests__/mapAndApiStateNames.test.js",
     "compress_maps": "rollup -c",
     "test": "react-scripts test --testPathIgnorePatterns=src/__tests__/mapAndApiStateNames.test.js",

@@ -35,10 +35,10 @@ const Essentials = lazy(() =>
 const schemaMarkup = {
   '@context': 'http://schema.org/',
   '@type': 'NGO',
-  name: 'Coronavirus Outbreak in India: Latest Map and Case Count',
-  alternateName: 'COVID-19 Tracker',
-  url: 'https://www.covid19india.org/',
-  image: 'https://www.covid19india.org/thumbnail.png',
+  name: 'Coronavirus Outbreak in India: Latest Map and Job loss count',
+  alternateName: 'Job Loss Tracker',
+  url: '*',
+  image: '*',
 };
 
 function App() {
